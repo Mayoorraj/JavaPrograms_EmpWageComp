@@ -9,24 +9,29 @@ public class EmpWageComputation {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee wage computation program..!");
 //		checking whether employee is present 
-		int isPresent = 1;
-		int EmpRatePerHour = 20;
+		int isPartTime = 1;
+		int isFullTime = 2;
+		int empRatePerHour = 20;
 		int empHrs = 0;
 		int empWage = 0;
-
-		double empCheck = Math.floor(Math.random() * 10) % 2;
-
-		if (empCheck == isPresent)
-			System.out.println("\nEmployee is present !");
-		else
-			System.out.println("\nEmployee is absent..");
-
-//		calculation employee wage 	
-		if (empCheck == isPresent)
+		
+		double empCheck = Math.floor(Math.random() * 10) % 3;
+// 		Check Present Employee is Part time or Full time
+		
+		if (empCheck == isPartTime) {
+			empHrs = 4;
+			System.out.println("\nEmployee is present, working part time..");
+		} 
+		if (empCheck == isFullTime) {
 			empHrs = 8;
-		else
+			System.out.println("\nEmployee is present, working full time..");
+		}
+		if (empCheck==0) {
 			empHrs = 0;
-		empWage = empHrs * EmpRatePerHour;
-		System.out.println("Employee wages will be : " + empWage + " INR");
+		System.out.println("\nEmployee is absent..");
+	}
+		
+		empWage = empHrs * empRatePerHour;
+		System.out.println("Employee Wages will be : " + empWage + " INR");
 	}
 }
