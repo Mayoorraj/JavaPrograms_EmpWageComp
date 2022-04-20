@@ -5,56 +5,48 @@ package com.bridgelabz.assignment4.EmpWageComp;
  *
  */
 public class EmpWageComputation {
-	// Declared global variables
-	public static final int ABSENT = 0;
-	public static final int IS_PRESENT = 1;
-	public static final int IS_HALF_PRESENT = 2;
-	public static final int WAGE_PER_HR = 20;
-	public static final int NUM_OF_WORKING_DAY = 20;
-	public static final int MAX_WORKING_HR = 100;
+	public static final int FULL_TIME = 1;
+	public static final int PART_TIME = 2;
+	public static final int EMP_WAGE_PER_HR = 20;
+	public static final int NUM_WORKING_DAYS = 20;
+	public static final int MAX_HRS_IN_MONTH = 100;
 
 	public static void main(String[] args) {
-		// Print Program Name
-		System.out.println("\nWelcome to Employee Wage Computation Program");
+		System.out.println("Welcome to Employee Wage Computation Problem Part3!");
 
-		// Declared local variables
-		int DailyWage = 0;
-		int EmpHr = 0;
-		int TotalEmpWage = 0;
-		int TotalEmpHrs = 0;
-		int NoWorkingDay = 0;
+		int empHrs = 0, empWage = 0, totalEmpWage = 0, totalEmpHrs = 0, totalWorkingDays = 1;
 
-		while (TotalEmpHrs <= MAX_WORKING_HR && NoWorkingDay < NUM_OF_WORKING_DAY) {
-			NoWorkingDay++;
-			double RANDOM = Math.floor(Math.random() * 3);
-			// Employee Wage Calculation as per Present, Absent Or Half Time By using Switch
-			switch ((int) RANDOM) {
+		// check total emp hour not more than 100 and total days not more than 20
+		while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays <= NUM_WORKING_DAYS) {
 
-			case 0:
+			double empCheck = Math.floor(Math.random() * 3);
+
+			switch ((int) empCheck) {
+			case FULL_TIME:
+				System.out.println("\nEmployee is present, working full time");
+				empHrs = 8;
+				break;
+
+			case PART_TIME:
+				System.out.println("\nEmployee is present, working part time");
+				empHrs = 4;
+				break;
+
+			default:
 				System.out.println("\nEmployee is Absent");
-				EmpHr = 0;
-				break;
-
-			case 1:
-				System.out.println("\nEmployee is Present, working full time..");
-				EmpHr = 8;
-				break;
-
-			case 2:
-				System.out.println("\nEmployee is present, working part time..");
-				EmpHr = 4;
-
+				empHrs = 0;
 			}
-			// Calculate Daily Employee Wage
-			DailyWage = WAGE_PER_HR * EmpHr;
-			TotalEmpWage += DailyWage;
-			TotalEmpHrs += EmpHr;
-			System.out.println("Employee Wage: " + DailyWage);
 
+			empWage = empHrs * EMP_WAGE_PER_HR;
+			totalEmpWage += empWage;
+			totalEmpHrs += empHrs;
+			System.out.println("Employee wages for a day is " + empWage + " INR");
+
+			// day increment by 1 every iteration
+			totalWorkingDays++;
 		}
-		System.out.println("\nEmployee Worked for " + TotalEmpHrs + " Hrs..!");
-		System.out.println("Employees monthly Wages will be " + TotalEmpWage + " INR");
-		
+		System.out.println("\nEmployee had worked for " + totalEmpHrs + " Hrs..");
+		System.out.println("Employee will be paid " + totalEmpWage + " INR..!");
 	}
 
 }
