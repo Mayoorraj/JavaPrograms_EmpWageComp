@@ -10,7 +10,7 @@ public class EmpWageComputation implements EmpWageInterface {
 //	global variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
-	
+
 //	creating an array list
 	private ArrayList<CompanyEmpWage> companyEmpWageArrayList;
 
@@ -22,7 +22,7 @@ public class EmpWageComputation implements EmpWageInterface {
 
 //	defining method using array
 	public void addCompanyEmpWage(String company, int empRatePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
-		CompanyEmpWage companywage = new CompanyEmpWage(company, empRatePerHr, numOfWorkingDays,maxHrsPerMonth);
+		CompanyEmpWage companywage = new CompanyEmpWage(company, empRatePerHr, numOfWorkingDays, maxHrsPerMonth);
 		companyEmpWageArrayList.add(companywage);
 	}
 
@@ -30,9 +30,11 @@ public class EmpWageComputation implements EmpWageInterface {
 	public void empWage() {
 		for (int i = 0; i < companyEmpWageArrayList.size(); i++) {
 			CompanyEmpWage companyEmpWage = companyEmpWageArrayList.get(i);
-			
+
 			int totalEmpWage = this.computeEmpWage(companyEmpWage);
-			System.out.println("Total Employee Wage for Company " + companyEmpWage.company + " is: " + totalEmpWage);
+			System.out.println("----------------------------------------------------------"
+					+ "\nTotal Employee Wage for Company " + companyEmpWage.company + " is " + totalEmpWage
+					+ " INR\n-----------------------------------------------------------");
 		}
 	}
 
@@ -58,6 +60,10 @@ public class EmpWageComputation implements EmpWageInterface {
 				empHour = 0;
 			}
 			totalEmpHour += empHour;
+			int dailyWage = empHour * companyEmpWage.empRatePerHr;
+//			displaying daily wages paid by company
+			System.out.println(
+					"\nDaily Employee Wage for Company " + companyEmpWage.company + " is " + dailyWage + " INR");
 		}
 		return companyEmpWage.totalEmpWage = totalEmpHour * companyEmpWage.empRatePerHr;
 	}
