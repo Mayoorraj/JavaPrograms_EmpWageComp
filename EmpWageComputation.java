@@ -4,7 +4,7 @@ package com.bridgelabz.assignment4.EmpWageComp;
  * @author mayoor
  *
  */
-public class EmpWageComputation implements EmpWageInterface {
+public class EmpWageComputation {
 //	global variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
@@ -26,7 +26,7 @@ public class EmpWageComputation implements EmpWageInterface {
 	}
 
 //	calculating wages for multiple company
-	void EmpWage() {
+	void empWage() {
 		for (int i = 0; i < numOfCompanies; i++) {
 			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
 			System.out.print(companyEmpWageArray[i]);
@@ -69,12 +69,8 @@ public class EmpWageComputation implements EmpWageInterface {
 		companyEmpWageArray.addCompanyEmpWage("Big Basket", 25, 30, 200);
 		companyEmpWageArray.addCompanyEmpWage("Reliance Mart", 22, 30, 300);
 // 		calling method to compute wages for multiple companies
-		companyEmpWageArray.EmpWage();
+		companyEmpWageArray.empWage();
 
 	}
 
-	public void empWage() {
-		// TODO Auto-generated method stub
-		
-	}
 }
