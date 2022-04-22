@@ -60,10 +60,10 @@ public class EmpWageComputation implements EmpWageInterface {
 				empHour = 0;
 			}
 			totalEmpHour += empHour;
+			
+//			storing daily wages paid by company
 			int dailyWage = empHour * companyEmpWage.empRatePerHr;
-//			displaying daily wages paid by company
-			System.out.println(
-					"\nDaily Employee Wage for Company " + companyEmpWage.company + " is " + dailyWage + " INR");
+			
 		}
 		return companyEmpWage.totalEmpWage = totalEmpHour * companyEmpWage.empRatePerHr;
 	}
