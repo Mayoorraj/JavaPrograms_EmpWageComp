@@ -4,7 +4,7 @@ package com.bridgelabz.assignment4.EmpWageComp;
  * @author mayoor
  *
  */
-public class EmpWageComputation {
+public class EmpWageComputation implements EmpWageInterface {
 //	global variables
 	public static final int IS_FULL_TIME = 1;
 	public static final int IS_PART_TIME = 2;
@@ -19,7 +19,7 @@ public class EmpWageComputation {
 	}
 
 //	defining method using array
-	void addCompanyEmpWage(String company, int empRatePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
+	public void addCompanyEmpWage(String company, int empRatePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
 		companyEmpWageArray[numOfCompanies] = new CompanyEmpWage(company, empRatePerHr, numOfWorkingDays,
 				maxHrsPerMonth);
 		numOfCompanies++;
@@ -71,5 +71,10 @@ public class EmpWageComputation {
 // 		calling method to compute wages for multiple companies
 		companyEmpWageArray.EmpWage();
 
+	}
+
+	public void empWage() {
+		// TODO Auto-generated method stub
+		
 	}
 }
