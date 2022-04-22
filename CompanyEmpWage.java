@@ -21,8 +21,4 @@ public class CompanyEmpWage {
 		this.totalEmpWage = totalEmpWage;
 	}
 
-//	@override
-	public String toString() {
-		return "\n" + company + " will pay its employee total wage of " + totalEmpWage + " INR";
-	}
 }
